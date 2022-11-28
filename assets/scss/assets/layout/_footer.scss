@@ -1,0 +1,33 @@
+@use '../util' as u;
+
+footer {
+    background-color: darken(u.$shadow, 80%);
+    padding: u.rem(40) u.rem(20);
+    color: u.$white;
+    
+    a {
+        width: fit-content;
+
+        &:hover { 
+            font-weight: 500;
+        }
+    }
+
+    .ohmyfood {
+        display: block;
+        font-size: u.rem(22);
+        margin-bottom: u.rem(14);
+    }
+
+    .fa-solid {
+        font-size: u.rem(16);
+    }
+
+    .fa-utensils {
+        margin-right: u.rem(10);
+    }
+
+    .fa-handshake-angle {
+        margin-right: u.rem(4);
+    }
+}

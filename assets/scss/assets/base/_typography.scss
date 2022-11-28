@@ -1,0 +1,27 @@
+@use '../util' as u;
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ohmyfood {
+    font-family: 'Shrikhand', cursive;
+}
+
+a:any-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+h1, h2 {
+    font: {
+        size: u.rem(22);
+        weight: 700;
+    }
+}
+
+
+
+
+

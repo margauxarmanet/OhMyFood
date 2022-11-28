@@ -1,0 +1,27 @@
+@keyframes appear {
+  0% {
+    bottom: -30px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes fill {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 0;
+    left: -10000px;
+  }
+}

@@ -1,0 +1,25 @@
+@use './functions' as u;
+@use './variables' as v;
+
+@mixin section($color: v.$white) {
+    padding: u.rem(40) u.rem(20);
+    background-color: $color;
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+}
+
+@mixin column-container {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+}
+
+@mixin button-shape($size: u.rem(20)) {
+    display: flex;
+    align-items: center;
+    padding: u.rem(20) $size;
+    border-radius: $size;
+    box-shadow: u.rem(2) u.rem(2) u.rem(6) u.rem(1) darken(v.$shadow, 15%);
+    font-weight: 500;
+}

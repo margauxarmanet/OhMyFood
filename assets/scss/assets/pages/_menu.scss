@@ -1,0 +1,165 @@
+@use '../util' as u;
+@forward '../util/animations'; // for animations
+
+
+
+// header
+.menu_header {
+
+    .ohmyfood {
+        margin-left: calc(50% - u.rem(125));
+    }
+
+    .arrow {
+        font-size: u.rem(30);
+        padding-left: u.rem(16);
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+// main
+.menu_main {
+    @include u.section;
+    background-color: u.$shadow;
+    border-radius: u.rem(20) u.rem(20) 0 0;
+    // position
+    margin-top: -4rem;
+    z-index: 1;
+    position: relative;
+}
+
+// hero
+.menu_hero {
+    @extend %between;
+
+    @include u.breakpoint(large) {
+        justify-content: center;
+        gap: u.rem(30);
+    }
+
+    h1 {
+        font: {
+            family: 'Shrikhand', cursive;
+            weight: unset;
+            size: u.rem(24);
+        }
+    }
+}
+
+// MENU
+.menu_container {
+    @include u.breakpoint(large) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
+}
+
+// SUB-MENUS
+.menu_sub {
+    @include u.column-container;
+    padding-bottom: u.rem(30);
+
+    @include u.breakpoint(large) {
+        width: 30%;
+    }
+
+    h2 {
+        font-weight: 300;
+        position: relative;
+    }
+
+    h2::after {
+        // style
+        content: "";
+        width: u.rem(60);
+        height: u.rem(4);
+        background-color: u.$tertiary-color;
+        // position
+        position: absolute;
+        top: u.rem(30);
+        left: 0;
+    }
+}
+
+.menu_item {
+    @extend %between;
+    padding: u.rem(16);
+    border-radius: u.rem(20);
+    box-shadow: u.rem(2) u.rem(2) u.rem(6) u.rem(1) darken(u.$shadow, 15%);
+    overflow: hidden;
+    // animation
+    cursor: pointer;
+    opacity: 0;
+    position: relative;
+    animation: appear 1s ease-in forwards;
+
+    &__description {
+        @extend %between;
+        padding-right: u.rem(16);
+        gap: u.rem(10);
+        width: 100%;
+
+        header {
+            width: 100%; // the parent or the element needs a set width for ellipsis to work
+        }
+
+        header > * {
+            overflow: hidden; 
+            white-space: initial;
+            display: -webkit-box; // needed for -webkit-line-clamp
+            -webkit-line-clamp: 1; // ellipsis happens at line 1
+            -webkit-box-orient: vertical; // needed for -webkit-line-clamp 
+            text-overflow: ellipsis;
+        }
+
+        &:hover + .confirmation {
+            margin-right: u.rem(-16);
+            transition: margin 600ms ease-out;
+        }
+
+        &:hover + .confirmation > .fa-circle-check {
+            transition: transform 600ms ease-out;
+            transform: rotate(0);
+        }
+    }
+
+    &__price {
+        align-self: flex-end;
+        font-weight: 700;
+    }
+
+    .confirmation {
+        @extend %center;
+        background-color: u.$tertiary-color;
+        font-size: u.rem(20);
+        color: u.$white;
+        width: u.rem(60);
+        height: u.rem(82);
+        margin: u.rem(-20) u.rem(-80) u.rem(-20) 0;
+    }
+
+    .fa-circle-check {
+        transform: rotate(380deg);
+    }
+}
+
+@for $i from 1 to 10 {
+    .delay-#{$i} {
+        animation-delay: #{$i*0.1}s;
+        opacity: 1 / #{$i};
+    }
+  }
+
+.place-order {
+    @extend %center;
+    
+    a{
+        padding-inline: u.rem(50);
+    }
+}

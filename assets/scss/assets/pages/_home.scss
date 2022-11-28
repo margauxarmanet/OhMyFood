@@ -1,0 +1,162 @@
+@use '../util' as u;
+@use '../util/variables'as v; // for mixins
+
+
+// searchform
+.home_header {
+    background-color: darken(u.$shadow, 5%);
+
+    .searchform {
+        @extend %center;
+    }
+
+    .fa-location-dot {
+        @extend %center;
+        height: u.rem(60);
+        color: darken(u.$shadow, 70%);
+        font-size: u.rem(16);
+        margin-bottom: 2px;
+    }
+
+    input {
+        background-color: transparent;
+        padding: 0 u.rem(16);
+        width: u.rem(150);
+        border: none;
+        outline: none;
+    }
+}
+
+// hero
+#hero {
+    @include u.section(u.$shadow);
+    @extend %center;
+    text-align: center;
+
+    @include u.breakpoint(large) {
+        background-color: darken(u.$shadow, 80%);
+        color: u.$white;
+    }
+
+    h1 {
+        width: 70%;
+    }
+
+    .primary-button {
+        @include u.breakpoint(large) {
+        box-shadow: none;
+        }
+    }
+}
+
+// fonctionnement
+#fonctionnement {
+    @include u.section;
+    
+    ol {
+        @include u.column-container;
+        margin-inline: u.rem(16) u.rem(4);
+
+        @include u.breakpoint(large) {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+
+    li {
+        @include u.button-shape;
+        background-color: u.$shadow;
+        counter-increment: step; /*name of the counter*/
+        position: relative;
+
+        @include u.breakpoint(large) {
+            flex-basis: 28%;
+        }
+    }
+
+    li:hover {
+        background-color: rgba(u.$primary-color, 0.1);
+    }
+
+    li::before {
+        // style
+        background-color: u.$primary-color;
+        padding: u.rem(2) u.rem(10);
+        border-radius: u.rem(30);
+        color: u.$white;
+        font-size: u.rem(12.5);
+        // position
+        content: counter(step) ""; /*display result*/
+        counter-increment: item 1; /* counter +1*/
+        float: left;
+        top: u.rem(16.5);
+        left: u.rem(-14);
+        position: absolute;
+    
+    }
+
+    .fa-solid {
+        font-size: u.rem(22);
+        color: darken(u.$shadow, 50%);
+        padding-inline: 0.625rem 1.5rem;
+    }
+}
+
+// restaurants
+#restaurants {
+    @include u.section(u.$shadow);
+
+    .restaurants_cards_container {
+        @include u.column-container;
+        @extend %center;
+
+        @include u.breakpoint(large) {
+            flex-direction: row;
+            } 
+    }
+}
+
+.restaurant_card {
+    background-color: u.$white;
+    border-radius: u.rem(20);
+    box-shadow: u.rem(2) u.rem(2) u.rem(6) u.rem(1) darken(v.$shadow, 15%);
+    width: 100%;
+    position: relative;
+    
+    @include u.breakpoint(large) {
+        flex-basis: 25%;
+        flex-grow: 1;
+        } 
+
+    // animation
+    transform: scale(1.01);
+
+    &:hover {
+        transition: transform 300ms ease-in-out;
+        transform: scale(1);
+    }
+
+    .nouveau {
+        background-color: u.$tertiary-color;
+        color: darken(u.$tertiary-color, 50%);
+        font-weight: 700;
+        padding: u.rem(4) u.rem(8);
+        border-radius: u.rem(2);
+        position: absolute;
+        top: u.rem(16);
+        right: u.rem(15);
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        border-radius: u.rem(20) u.rem(20) 0 0;
+    }
+
+    figcaption {
+        padding: u.rem(10) u.rem(16);
+        @extend %between;
+    }
+}
+
+

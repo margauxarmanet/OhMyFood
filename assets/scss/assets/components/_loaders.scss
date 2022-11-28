@@ -1,0 +1,13 @@
+@use '../util' as u;
+
+.loader {
+    @extend %center;
+    position: fixed;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: .9;
+    color: u.$primary-color;
+    animation: disappear .6s ease-in-out forwards 1s;
+}

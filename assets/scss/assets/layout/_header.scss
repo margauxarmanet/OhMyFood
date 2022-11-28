@@ -1,0 +1,15 @@
+@use '../util' as u;
+
+.header {
+    height: u.rem(60);
+    box-shadow: 0 0 u.rem(6) u.rem(1) darken(u.$shadow, 30%);
+    background-color: u.$white;
+    display: flex;
+    align-items: center;
+    
+    .ohmyfood {
+        font-size: u.rem(30);
+        width: u.rem(165);
+        margin-inline: auto;
+    }
+}

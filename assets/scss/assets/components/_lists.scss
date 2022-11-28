@@ -1,0 +1,7 @@
+@use '../util' as u;
+
+ul, ol {
+    list-style-position: inside;
+    list-style-type: none;
+    line-height: u.rem(24);
+}

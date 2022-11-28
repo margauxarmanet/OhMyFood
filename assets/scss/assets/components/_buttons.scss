@@ -1,0 +1,40 @@
+@use '../util' as u;
+@use '../util/variables'as v; // for mixins
+
+// buttons
+.primary-button {
+
+    // style
+    background: linear-gradient(166deg, u.$secondary-color, u.$primary-color);
+    color: u.$white !important;
+    width: fit-content;
+    @extend %center;
+    @include u.button-shape(u.rem(30));
+
+    // animation
+    transform: scale(1.02);
+
+    &:hover {
+      background: linear-gradient(166deg, lighten(u.$secondary-color, 3%), lighten(u.$primary-color, 3%));
+      box-shadow: u.rem(2) u.rem(2) u.rem(6) u.rem(1) darken(v.$shadow, 30%);
+      transition: transform 600ms ease-in-out;
+      transform: scale(1);
+    }
+}
+
+// likes
+.fill, .like {
+    color: black;
+    cursor: pointer;
+    font-size: u.rem(25);
+    
+    &:hover {
+      animation: fill 0.4s ease-in-out forwards;
+      background: linear-gradient(166deg, u.$secondary-color, u.$primary-color);
+      font-weight: bold; // fill heart inside
+      opacity: .5; // fill heart inside
+      background-clip: text; // background only shows in the heart - standard style rule
+      -webkit-background-clip: text; // background only shows in the heart - vendor prefixed version
+      -webkit-text-fill-color: transparent; // doesn't accept linear-gradient, so if transparent, heart fills with background
+    }
+  }
