@@ -120,7 +120,6 @@
 
         &:hover + .confirmation {
             margin-right: u.rem(-16);
-            transition: margin 600ms ease-out;
         }
 
         &:hover + .confirmation > .fa-circle-check {
@@ -142,6 +141,7 @@
         width: u.rem(60);
         height: u.rem(82);
         margin: u.rem(-20) u.rem(-80) u.rem(-20) 0;
+        transition: margin-right .6s ease-out;
     }
 
     .fa-circle-check {

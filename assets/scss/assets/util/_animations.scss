@@ -1,3 +1,4 @@
+// menu items
 @keyframes appear {
   0% {
     bottom: -30px;
@@ -9,12 +10,14 @@
   }
 }
 
+// like button
 @keyframes fill {
   100% {
     opacity: 1;
   }
 }
 
+// loader
 @keyframes disappear {
   50% {
     opacity: .5;
