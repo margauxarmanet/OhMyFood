@@ -421,7 +421,6 @@ footer .fa-handshake-angle {
   margin-right: -1rem;
 }
 .menu_item__description:hover + .confirmation > .fa-circle-check {
-  transition: transform 600ms ease-out;
   transform: rotate(0);
 }
 .menu_item__price {
@@ -438,7 +437,8 @@ footer .fa-handshake-angle {
   transition: margin-right 0.6s ease-out;
 }
 .menu_item .fa-circle-check {
-  transform: rotate(380deg);
+  transition: transform 0.4s ease-in-out 0.35s;
+  transform: rotate(-180deg);
 }
 
 .delay-1 {
